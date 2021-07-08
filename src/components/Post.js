@@ -7,10 +7,6 @@ export default (props) =>{
  
     const {title,url,description,creation_date} = props;
  
-    console.log("url",url);
-    console.log("description",description);
-    console.log("creacion_date",creation_date);
-
     const API_URL = 'http://localhost:1337';
     const formatImage = (url) =>`${API_URL}${url}`;
     

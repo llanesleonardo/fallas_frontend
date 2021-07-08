@@ -1,11 +1,20 @@
+import React from "react"; 
+import {BrowserRouter,Switch,Route} from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
-import Post from "./components/Post";
-const posts =[
+
+import Nav from "./components/Nav";
+import Home from "./pages/Home";
+import Create from "./pages/Create";
+import SinglePost from "./pages/SinglePost";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+
+
+
+const mockPosts =[
    { "id": 1,
     "Nombre": "Post 1",
     "Slug": "post-1",
@@ -137,23 +146,24 @@ const posts =[
 
 
 function App() {
-  return (
-    <div className="App">
- <Container className="post_centrado">
-    <Row>
-            {posts.map(post =>(
-              <Post 
-              key={post.id}
-              title={post.Nombre} 
-              url={post.img_ppal && post.img_ppal.url} 
-              description={post.body} 
-              creation_date={post.created_at} 
-              />
-             ))}
-    </Row>
-  </Container>
-    </div>
-  );
+
+  return(
+      <div className="App">
+        <Container className="post_centrado">
+        <BrowserRouter>
+        <Nav />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/create" exact component={Create} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/signup" exact component={SignUp} />
+            <Route path="/:id" exact component={SinglePost} />
+          </Switch>
+        </BrowserRouter>
+        </Container>
+      </div>
+  )
+  
 }
 
 export default App;
