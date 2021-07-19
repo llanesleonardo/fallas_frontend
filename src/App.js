@@ -3,16 +3,26 @@ import {BrowserRouter,Switch,Route} from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 import Container from 'react-bootstrap/Container';
-
-
-import Nav from "./components/Nav";
+import NavigationMain from "./components/Layout/Navigations/NavigationMain";
 import Home from "./pages/Home";
 import Create from "./pages/Create";
 import SinglePost from "./pages/SinglePost";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
-
-
+import ShowCatalogs from "./pages/Catalogs/ShowCatalog";
+import ShowCampos from "./pages/Catalogs/Campos/ShowCampos";
+import ShowCampo from "./pages/Catalogs/Campos/ShowCampo";
+import ShowCuadros from "./pages/Catalogs/Cuadros/ShowCuadros";
+import ShowCuadro from "./pages/Catalogs/Cuadros/ShowCuadro";
+import ShowVariedades from "./pages/Catalogs/Variedades/ShowVariedades";
+import ShowVariedad from "./pages/Catalogs/Variedades/ShowVariedad";
+import ShowAreas from "./pages/Catalogs/Areas/ShowAreas";
+import ShowArea from "./pages/Catalogs/Areas/ShowArea";
+import ShowLineas from "./pages/Catalogs/Lineas/ShowLineas";
+import ShowLinea from "./pages/Catalogs/Lineas/ShowLinea";
+import Dashboard from "./pages/Dashboard";
+import Contact from "./pages/Contact";
+import Footer from "./components/Layout/Footer";
 
 const mockPosts =[
    { "id": 1,
@@ -149,16 +159,29 @@ function App() {
 
   return(
       <div className="App">
-        <Container className="post_centrado">
-        <BrowserRouter>
-        <Nav />
+        <Container fluid className="post_centrado">
+        <BrowserRouter> 
           <Switch>
             <Route path="/" exact component={Home} />
+            <Route path="/dashboard" exact component={Dashboard} />
             <Route path="/create" exact component={Create} />
             <Route path="/login" exact component={Login} />
             <Route path="/signup" exact component={SignUp} />
+            <Route path="/contact" exact component={Contact} />
+            <Route path="/catalogs" exact component={ShowCatalogs} />
+            <Route path="/catalogs/campos" exact component={ShowCampos} />
+            <Route path="/catalogs/campos/campo/:id" exact component={ShowCampo} />
+            <Route path="/catalogs/cuadros" exact component={ShowCuadros} />
+            <Route path="/catalogs/cuadros/cuadro/:id" exact component={ShowCuadro} />
+            <Route path="/catalogs/variedades" exact component={ShowVariedades} />
+            <Route path="/catalogs/variedades/variedad/:id" exact component={ShowVariedad} />
+            <Route path="/catalogs/areas" exact component={ShowAreas} />
+            <Route path="/catalogs/areas/area/:id" exact component={ShowArea} />
+            <Route path="/catalogs/lineas" exact component={ShowLineas} />
+            <Route path="/catalogs/lineas/linea/:id" exact component={ShowLinea} />
             <Route path="/:id" exact component={SinglePost} />
           </Switch>
+          <Footer />
         </BrowserRouter>
         </Container>
       </div>

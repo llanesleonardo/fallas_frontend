@@ -1,8 +1,11 @@
 import React,{useState,useEffect} from "react"; 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 import {Link} from "react-router-dom";
 import Post from "../components/Post";
+import Hero from "../components/Layout/Home/Hero";
+import AboutHome from "../components/Layout/Home/AboutHome";
+import ValueAddedhome from "../components/Layout/Home/ValueAddedhome";
+import VideoHome from "../components/Layout/Home/VideoHome";
+import NavigationMain from "../components/Layout/Navigations/NavigationMain";
 
 export default ()=>{
 
@@ -22,9 +25,17 @@ export default ()=>{
   
   
     return (
-        <div className="Home">
-        <Container className="post_centrado">
-            <Row>
+            <>
+                <NavigationMain />
+                <Hero/>
+                <AboutHome/>
+                <ValueAddedhome />
+                <VideoHome />
+            </>
+    );
+}
+
+/*
                     {posts.map(post =>(
                     <Link
                         to={`/${post.id}`}
@@ -38,8 +49,4 @@ export default ()=>{
                         />
                     </Link>
                     ))}
-            </Row>
-            </Container>
-        </div>
-    );
-}
+*/ 

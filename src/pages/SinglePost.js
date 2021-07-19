@@ -2,13 +2,21 @@ import React,{useState,useEffect,useContext} from "react";
 import Post from "../components/Post";
 
 import {UserContext} from "../context/UserContext";
+import {LikesContext} from "../context/LikesContext";
 
 export default (props)=>{
     
     const {match,history} = props;
     const {id} = match.params;
+
     const {user,setUser} = useContext(UserContext);
+    const {likesGiven,setLikesGiven, reloader} = useContext(LikesContext);
     console.log(user);
+
+    const isPostAlreadyLiked =( () => {
+        return likesGiven && likesGiven.find(like => like.post && like.post.id == id)
+    })()
+
 
     const [post,setPost] = useState({});
     const [loading,setLoading] = useState(true);
@@ -61,6 +69,48 @@ export default (props)=>{
 
     }
 
+    const handleLike = async () =>{
+        try {
+            
+            const response = await fetch("http://localhost:1337/likes",{
+                method:"POST",
+                headers:{
+                    'Authorization':`Bearer ${user.jwt}`,
+                    'Content-type':'application/json'
+                },
+                body:JSON.stringify({
+                    post:parseInt(id)
+                })
+            })
+
+            fetchPost();
+            reloader();
+
+        } catch (error) {
+            
+            console.log("Exception", error);
+        }
+    }
+
+    const handleRemoveLike = async () =>{
+        try {
+            
+            const response = await fetch(`http://localhost:1337/likes/${id}`,{
+                method:"DELETE",
+                headers:{
+                    'Authorization':`Bearer ${user.jwt}`,
+                    'Content-type':'application/json'
+                }
+            })
+
+            fetchPost();
+            reloader();
+        } catch (error) {
+            
+            console.log("Exception", error);
+        }
+    }
+
     useEffect(()=>{
     fetchPost()
     },[])
@@ -86,7 +136,18 @@ export default (props)=>{
                             url={post.img_ppal && post.img_ppal.url} 
                             description={post.descripcion} 
                             creation_date={post.created_at}
+                            likes={post.likes}
                             />
+                            {user &&
+                                <>
+                                {isPostAlreadyLiked&& 
+                                     <button onClick={handleRemoveLike}>Remove Like</button>
+                                }
+                                {!isPostAlreadyLiked&& 
+                                   <button onClick={handleLike}>Like</button>
+                                }
+                                </>
+                            }
                             {user &&
                                 <>
                             <button

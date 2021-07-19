@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+
 import reportWebVitals from './reportWebVitals';
 import UserContextProvider from "./context/UserContext";
-
+import LikesContextProvider from "./context/LikesContext";
 
 // Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,7 +14,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 ReactDOM.render(
   <React.StrictMode>
     <UserContextProvider>
-    <App />
+      <LikesContextProvider>
+         <App />
+     </LikesContextProvider>
     </UserContextProvider>
   </React.StrictMode>,
   document.getElementById('root')

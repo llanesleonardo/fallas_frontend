@@ -1,6 +1,7 @@
 import React,{useState,useEffect,useContext} from "react";
-
 import {UserContext} from "../context/UserContext";
+import NavigationMain from "../components/Layout/Navigations/NavigationMain";
+import LogInForm from "../components/Layout/LogIn/LogInForm";
 
 
 export default ({history}) =>{
@@ -13,7 +14,7 @@ export default ({history}) =>{
 
     useEffect (()=>{
         if (user) {
-            history.push('/')
+            history.push('/dashboard')
         }
     },[user])
 
@@ -49,30 +50,18 @@ try{
        
     }
     return(
-        <div className="login">
-            <form onSubmit={handleLogInSubmit}>
-            <input
-                type="email"
-                value={email}
-                onChange={(event) => {
-                    setError('')
-                    setEmail(event.target.value)
-                }}
+        <>
+            <NavigationMain />  
+            <LogInForm 
+                handleLogInSubmit={handleLogInSubmit} 
+                email={email}  
+                pass={pass}  
+                setError={setError} 
+                setEmail={setEmail}
+                setPass={setPass}
+                error={error}
             />
-            <input
-                type="pass"
-                value={pass}
-                onChange={(event) => {
-                    setError('')
-                    setPass(event.target.value)
-                }}
-            />
-            <button>Iniciar sesión</button>
-            </form>
-
-
-            {error && <p>{error}</p>}
-        </div>
+        </>
     )
 
 }

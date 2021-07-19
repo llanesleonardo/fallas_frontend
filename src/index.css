@@ -11,3 +11,163 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.hero_home_wrapper{
+  width: 100%;
+  background-image: url("");
+  background-color: #004fa8;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+  max-height: 100vh;
+}
+
+.hero_home_wrapper > div{
+  text-align: right;
+  position: relative;
+  top: 30%;
+  right: 10%;
+
+}
+
+.hero_home_wrapper p, .hero_home_wrapper h2{
+  color: white;
+}
+
+
+.about_home_wrapper > div{
+  width: 100%;
+  text-align: center;
+  padding: 50px 10px 50px 10px;
+}
+
+
+.about_home_wrapper p{
+  color: #5d5d5d;
+}
+
+.img_col_iguales{
+  width: 80px !important;
+}
+
+.video_home_wrapper {
+  margin: 50px;
+}
+
+.footer_one_wrapper{
+  height: 150px;
+  background-color: #dee0e3;
+  width: 100%;
+  text-align: center;
+}
+
+.footer_list_links{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.footer_list_item{
+  display: inline-block;
+  padding:45px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.loginform_title{
+  text-align: center;
+}
+
+.loginform_wrapper{
+  padding: 50px;
+}
+
+.form_1{
+  padding: 50px;
+
+}
+
+.ul_providers{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.Dashboard{
+  background-color:#004fa8 ;
+  height: 100vh;
+  width: 100%;
+}
+
+.content_h_dashboard{
+  background-color: #f8f8fc;
+  height: 100vh;
+}
+
+.secondary_h_dashboard{
+  background-color: white;
+  height: 100vh;
+}
+
+.menu_h_list_dashboard{
+  list-style-type: none;
+  padding: 0;
+}
+
+
+.menu_h_list_dashboard li:hover{
+  background-color: rgba(255,255,255,0.3);
+}
+
+.menu_h_list_dashboard a,.menu_h_list_dashboard a:hover{
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+
+.menu_h_dashboard span ul{
+  vertical-align: middle;
+  height: 100vh;
+}
+
+.menu-h-dasboard{
+  padding-left: 10px;
+  color: white;
+}
+
+
+.menu-h-dasboard:hover{
+  padding-left: 10px;
+  color: white;
+}
+
+.center_h_menu{
+  padding-top: 30px;;
+}
+
+.div_link_wrapper {
+  text-align: left;
+  width: 100%;
+}
+
+.menu_h_left {
+  height: 100vh;
+}
+
+.menu_h_left div{
+  width: 100%;
+}
+
+.items_blue,.items_blue:hover{
+  background-color: #004fa8 !important;
+  border: none;
+  width: 50px;
+}
+
+.items_blue::after{
+  content: none !important;
+}

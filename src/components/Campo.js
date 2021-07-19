@@ -4,16 +4,13 @@ import Card from 'react-bootstrap/Card';
 
 
 export default (props) =>{
- 
-    const {title,url,description,creation_date,likes} = props;
- 
-    const API_URL = 'http://localhost:1337';
-    const formatImage = (url) =>`${API_URL}${url}`;
+
+    const {title,description,creation_date,id} = props;
+
     
     return(
     <>
-        <Card className="Post" style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={formatImage(url)} />
+        <Card className="Campo" style={{ width: '18rem' }}>
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <small>{creation_date}</small>
@@ -21,7 +18,7 @@ export default (props) =>{
                 {description}
                 </Card.Text>
                 <Card.Text>
-                {likes}
+                {id}
                 </Card.Text>
             </Card.Body>
         </Card>
